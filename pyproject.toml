@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "dumberbase"
+version = "0.1.0"
+description = "The dumbest database"
+authors = ["Paul - PA Data Analytics <paul@padanalytics.co.uk>"]
+license = "MIT"
+packages = [
+    { include = "tests" },
+    { include = "storage" }
+]
+
+[tool.poetry.dependencies]
+python = "3.8.13"
+black = "^22.6.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+flakeheaven = "^2.0.0"
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.flakehell]
+# make output nice
+format = "grouped"
+# don't limit yourself
+max_line_length = 104
+# show line of source code in output
+show_source = true
+
+[tool.flakehell.plugins]
+pycodestyle = ["+*"]
+pyflakes = ["+*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py36', 'py37', 'py38']
